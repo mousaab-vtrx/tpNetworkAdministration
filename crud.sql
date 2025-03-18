@@ -12,16 +12,16 @@ CREATE TABLE `employees` (
 
 -- Dumping data for table `employees`
 INSERT INTO `employees` (`id`, `first_name`, `last_name`, `email`, `age`, `gender`, `designation`, `joining_date`) VALUES
-(9, 'Jimmy', 'Powell', 'jp.me@test.com', 29, 'Male', 'PHP Developer', '2022-09-24'),
-(10, 'John', 'Doe', 'john.doe@test.com', 31, 'Male', 'UI Designer', '2022-08-06'),
-(11, 'Phillip', 'Johnson', 'pj.123@test.com', 34, 'Male', 'Android Developer', '2022-11-04'),
-(12, 'Melissa', 'Butler', 'mel.buttler@test.com', 26, 'Female', 'UI Designer', '2022-11-13'),
-(13, 'Sara', 'Griffin', 'sara.griffin@test.com', 28, 'Female', 'Android Developer', '2022-08-31'),
-(14, 'Kelly', 'Martin', 'k.martin@test.com', 27, 'Female', 'Frontend Developer', '2022-05-29'),
-(15, 'Avinash', 'Sharma', 'av.sharma@test.com', 34, 'Male', 'PHP Developer', '2022-11-12'),
-(16, 'Nidhi', 'Aggarwal', 'na.me@test.com', 31, 'Female', 'Frontend Developer', '2022-11-04'),
-(17, 'Charles', 'Lee', 'charles.lee@test.com', 33, 'Male', 'Android Developer', '2022-09-10'),
-(18, 'Martin', 'Wood', 'martin.wood@test.com', 37, 'Others', 'UI Designer', '2021-12-04');
+(9, 'Omar', 'El Khatib', 'omar.khatib@test.com', 29, 'Male', 'PHP Developer', '2022-09-24'),
+(10, 'Youssef', 'Bennani', 'youssef.bennani@test.com', 31, 'Male', 'UI Designer', '2022-08-06'),
+(11, 'Hassan', 'El Amrani', 'hassan.amrani@test.com', 34, 'Male', 'Android Developer', '2022-11-04'),
+(12, 'Fatima', 'Alaoui', 'fatima.alaoui@test.com', 26, 'Female', 'UI Designer', '2022-11-13'),
+(13, 'Salma', 'El Idrissi', 'salma.idrissi@test.com', 28, 'Female', 'Android Developer', '2022-08-31'),
+(14, 'Kenza', 'Boukili', 'kenza.boukili@test.com', 27, 'Female', 'Frontend Developer', '2022-05-29'),
+(15, 'Anas', 'Mansouri', 'anas.mansouri@test.com', 34, 'Male', 'PHP Developer', '2022-11-12'),
+(16, 'Nadia', 'Chakiri', 'nadia.chakiri@test.com', 31, 'Female', 'Frontend Developer', '2022-11-04'),
+(17, 'Mehdi', 'Rachidi', 'mehdi.rachidi@test.com', 33, 'Male', 'Android Developer', '2022-09-10'),
+(18, 'Samira', 'Toumi', 'samira.toumi@test.com', 37, 'Female', 'UI Designer', '2021-12-04');
 
 -- AUTO_INCREMENT for table `employees`
 ALTER TABLE `employees`
