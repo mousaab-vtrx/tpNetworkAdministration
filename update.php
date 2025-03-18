@@ -15,7 +15,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     $fname_err = "This field is required.";
   } else {
     $fname = ucfirst(trim($_POST["fname"]));
-    if (!ctype_alpha($fname)) {
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $fname)) {
       $fname_err = "Invalid name format.";
     }
   }
@@ -24,7 +24,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     $lname_err = "This field is required.";
   } else {
     $lname = ucfirst(trim($_POST["lname"]));
-    if (!ctype_alpha($lname)) {
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $lname)) {
       $lname_err = "Invalid name format.";
     }
   }
@@ -42,8 +42,8 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     $age_err = "This field is required.";
   } else {
     $age = trim($_POST["age"]);
-    if (!ctype_digit($age)) {
-      $age_err = "Please enter a valid age number";
+    if (!ctype_digit($age) || $age < 18 || $age > 100) {
+      $age_err = "Please enter a valid age number between 18 and 100.";
     }
   }
 
@@ -86,8 +86,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
 
       # Execute the statement
       if (mysqli_stmt_execute($stmt)) {
-        echo "<script>" . "alert('Record has been updated successfully.');" . "</script>";
-        echo "<script>" . "window.location.href='./'" . "</script>";
+        echo "<script>alert('Record has been updated successfully.'); window.location.href='./';</script>";
         exit;
       } else {
         echo "Oops! Something went wrong. Please try again later.";
@@ -134,7 +133,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
           $date = $row["joining_date"];
         } else {
           # URL doesn't contain valid id parameter. Redirect to index page
-          echo "<script>" . "window.location.href='./'" . "</script>";
+          echo "<script>window.location.href='./';</script>";
           exit;
         }
       } else {
@@ -148,7 +147,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     mysqli_close($link);
   } else {
     # Redirect to index.php if URL doesn't contain id parameter
-    echo "<script>" . "window.location.href='./'" . "</script>";
+    echo "<script>window.location.href='./';</script>";
     exit;
   }
 }
@@ -161,10 +160,10 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="./style.css">
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-  <title>PHP CRUD Operations</title>
+  <title>Update Employee | Employee Management System</title>
 </head>
 
 <body>
@@ -172,7 +171,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     <div class="row justify-content-center mt-5">
       <div class="col-lg-6">
         <!-- form starts here -->
-        <form action="<?= htmlspecialchars(basename($_SERVER["REQUEST_URI"]));  ?>" class="bg-light p-4 shadow-sm" method="post" novalidate>
+        <form action="<?= htmlspecialchars(basename($_SERVER["REQUEST_URI"])); ?>" class="bg-light p-4 shadow-sm" method="post" novalidate>
           <div class="row gy-3">
             <div class="col-lg-6">
               <label for="fname" class="form-label">First Name</label>
@@ -238,4 +237,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
       </div>
     </div>
   </div>
+
+  <script src="./script.js"></script>
 </body>
+</html>
